@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+
+    <title>Contaminação COVID-19</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-5">Formulário para comunicação de sintomas de COVID-19</h1>
+
+        <form oninput="projection.value = (peopleFamily.valueAsNumber * 3) + ((peopleFamily.valueAsNumber))">
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" id="name" name="name" placeholder="Nome Sobrenome" required>
+                <label for="name">Nome</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                <label for="email">E-mail</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="email" id="confirmEmail" name="confirmEmail" placeholder="Confirme seu e-mail" required oninput="check(this)">
+                <label for="confirmEmail">Confirme seu E-mail</label>
+                <div id="validityEmail" style="display: none">
+                    <p class="text-danger p-1">E-mails não conferem!</p>
+                </div>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="date" id="birthDate" name="birthDate" required>
+                <label for="birthDate">Nascimento</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <textarea class="form-control" type="text" id="symptoms" name="symptoms" placeholder="Sintoma1, Sintoma2, Sintoma 3" required></textarea>
+                <label for="symptoms">Sintomas</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="number" id="daysSymptoms" name="daysSymptoms" min="1" max="15" placeholder="Quantidade de dias com sintomas" required>
+                <label for="daysSymptoms">Quantidade de dias com sintomas</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" id="phoneNumber" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" title="Telefone de Contato" placeholder="Telefone de Contato">
+                <label for="phoneNumber">Telefone de Contato</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="number" id="peopleFamily" name="peopleFamily" min="1" max="15" placeholder="Quantidade de pessoas na família" onkeypress="" required>
+                <label for="peopleFamily">Quantidade de pessoas na família</label>
+            </div>
+
+            <div class="alert alert-warning" role="alert">
+                Projeção de pessoas contaminadas: <output id="projection" name="projection">1</output>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Enviar dados</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="static/js/forms.js"></script>
+<script src="static/js/number-format.js"></script>
+
+</html>
